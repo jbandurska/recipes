@@ -1,0 +1,38 @@
+.header {
+  gap: 10px;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  padding: 0 20px;
+
+  .stars {
+    color: gold;
+    font-size: 1.6rem;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  gap: 5px;
+  margin-top: 25px;
+
+  .ingredients {
+    border-right: 1px solid #333;
+    padding-right: 10px;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+
+    li {
+      padding: 5px 0;
+    }
+  }
+}
+
+::ng-deep body {
+  background-image: url("https://cdn.aniagotuje.com/pictures/articles/2020/01/1967550-v-1500x1500.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

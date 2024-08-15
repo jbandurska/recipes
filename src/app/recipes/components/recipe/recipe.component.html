@@ -1,0 +1,22 @@
+<div class="recipe">
+  <div class="header f-center">
+    <h2 class="title">{{ recipe.title }}</h2>
+    <div class="stars">{{ stars }}</div>
+  </div>
+  <div class="content">
+    <div class="ingredients">
+      <ul>
+        @for (ingredient of recipe.ingredients; track ingredient) {
+        <li>{{ ingredient }}</li>
+        }
+      </ul>
+    </div>
+    <div class="steps">
+      <ol>
+        @for (step of recipe.steps; track step) {
+        <li>{{ step }}</li>
+        }
+      </ol>
+    </div>
+  </div>
+</div>
