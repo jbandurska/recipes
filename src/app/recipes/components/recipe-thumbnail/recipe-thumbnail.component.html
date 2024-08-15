@@ -1,0 +1,5 @@
+<div class="thumbnail">
+  <img [src]="recipe.photo" [alt]="recipe.title" class="photo" />
+  <div class="title">{{ recipe.title }}</div>
+  <input type="checkbox" [value]="isChecked" (change)="toggleRecipe(recipe)" />
+</div>

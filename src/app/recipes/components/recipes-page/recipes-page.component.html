@@ -1,0 +1,23 @@
+<h1 class="t-center">Przepisy</h1>
+
+<ul class="recipes">
+  @for (recipe of recipes; track recipe.title) {
+  <li>
+    <app-recipe-thumbnail
+      [recipe]="recipe"
+      (checked)="updateChosenRecipes($event)"
+    />
+  </li>
+  }
+</ul>
+
+@if (shoppingList.length) {
+<h2 class="t-center">Lista zakupów</h2>
+
+<ul class="list">
+  @for (item of shoppingList; track $index) {
+  <li>{{ item | ingredient }}</li>
+  }
+  <button class="copy m-center" (click)="copyToClipboard()">{{ copyButtonText }}</button>
+</ul>
+}
