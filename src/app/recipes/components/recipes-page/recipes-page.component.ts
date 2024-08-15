@@ -40,7 +40,7 @@ export class RecipesPageComponent {
         if (prev[curr.name]?.unit === curr.unit) {
           prev[curr.name].quantity += curr.quantity;
         } else {
-          prev[curr.name] = curr;
+          prev[curr.name] = { ...curr };
         }
 
         return prev;

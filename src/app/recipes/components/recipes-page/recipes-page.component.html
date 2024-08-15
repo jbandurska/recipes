@@ -15,9 +15,11 @@
 <h2 class="t-center">Lista zakupów</h2>
 
 <ul class="list">
-  @for (item of shoppingList; track $index) {
+  @for (item of shoppingList; track item.name) {
   <li>{{ item | ingredient }}</li>
   }
-  <button class="copy m-center" (click)="copyToClipboard()">{{ copyButtonText }}</button>
+  <button class="copy m-center" (click)="copyToClipboard()">
+    {{ copyButtonText }}
+  </button>
 </ul>
 }

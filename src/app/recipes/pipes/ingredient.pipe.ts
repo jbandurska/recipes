@@ -8,8 +8,8 @@ import { Ingredient } from '../models/ingredient.model';
 })
 export class IngredientPipe implements PipeTransform {
   transform(ingredient: Ingredient): string {
-    return `${ingredient.name} - ${ingredient.quantity} ${ingredient.unit}${
-      isPlural(ingredient.unit) && ingredient.quantity > 1 ? 's' : ''
-    }`;
+    return `${ingredient.name} - ${ingredient.quantity || ''} ${
+      ingredient.unit
+    }${isPlural(ingredient.unit) && ingredient.quantity > 1 ? 's' : ''}`;
   }
 }

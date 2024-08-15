@@ -14,7 +14,7 @@
   display: grid;
   grid-template-columns: 2fr 5fr;
   gap: 5px;
-  margin-top: 25px;
+  margin-top: 10px;
 
   .ingredients {
     border-right: 1px solid #333;
@@ -34,4 +34,5 @@
 ::ng-deep body {
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }

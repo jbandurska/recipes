@@ -6,6 +6,7 @@ export enum Unit {
   TeaSpoon = 'tsp',
   Centimeters = 'cm',
   Package = 'package',
+  ToTaste = 'to taste',
 }
 
 const pluralUnits = [Unit.Piece, Unit.Gram, Unit.Cup, Unit.Package];

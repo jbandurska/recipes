@@ -1,23 +1,30 @@
 .thumbnail {
-    height: 80px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 4px 16px -4px #3333331d;
+  overflow: hidden;
+
+  a {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    flex-grow: 1;
     gap: 20px;
-    border-radius: 20px;
-    background-color: white;
-    box-shadow: 0 4px 16px -4px #3333331d;
-    overflow: hidden;
+  }
 
-    .photo {
-        height: 100%;
-    }
+  .photo {
+    height: 80px;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
 
-    .title {
-        flex-grow: 1;
-    }
+  .title {
+    width: 100%;
+  }
 
-    input {
-        margin-right: 20px;
-    }
+  input {
+    margin-right: 20px;
+  }
 }
