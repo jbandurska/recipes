@@ -24,10 +24,18 @@
   ul,
   ol {
     margin: 0;
+  }
 
-    li {
-      padding: 5px 0;
-    }
+  ol li {
+    padding: 5px 0;
+  }
+
+  ul li {
+    padding: 2px 0;
+  }
+
+  .copy {
+    margin-top: 15px;
   }
 }
 

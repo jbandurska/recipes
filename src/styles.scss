@@ -12,6 +12,7 @@ body {
   line-height: 1.5;
   margin: 0;
   padding: 0;
+  background-image: url("https://img.freepik.com/free-vector/cooking-pattern-design_1284-545.jpg?t=st=1723746881~exp=1723750481~hmac=bb15cc5fa50765168668ce23c43b57f0ba85137419ebfa2e6bab57dcb4f29bb0&w=740");
 }
 
 input {
@@ -36,8 +37,13 @@ button {
 }
 
 a {
-    color: #333;
-    text-decoration: none;
+  color: #333;
+  transition: 0.3s;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary;
+  }
 }
 
 .t-center {

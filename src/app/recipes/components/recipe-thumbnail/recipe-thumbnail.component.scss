@@ -1,3 +1,5 @@
+$primary: #3484e4;
+
 .thumbnail {
   display: flex;
   align-items: center;
@@ -6,6 +8,8 @@
   background-color: white;
   box-shadow: 0 4px 16px -4px #3333331d;
   overflow: hidden;
+  border: 3px solid transparent;
+  transition: 0.3s;
 
   a {
     display: flex;
@@ -26,5 +30,10 @@
 
   input {
     margin-right: 20px;
+  }
+
+  &.checked {
+    border-color: $primary;
+    background-color: mix(white, $primary, 90%);
   }
 }

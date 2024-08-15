@@ -1,7 +1,16 @@
-<div class="thumbnail">
+<div class="thumbnail" [class.checked]="recipe.checked">
   <a [routerLink]="[recipe.title]">
-    <img [src]="recipe.photo" [alt]="recipe.title" class="photo" />
+    <img
+      loading="lazy"
+      [src]="recipe.photo"
+      [alt]="recipe.title"
+      class="photo"
+    />
     <div class="title">{{ recipe.title }}</div>
   </a>
-  <input type="checkbox" [value]="isChecked" (change)="toggleRecipe(recipe)" />
+  <input
+    type="checkbox"
+    [value]="recipe.checked"
+    (change)="toggleRecipe($event, recipe)"
+  />
 </div>

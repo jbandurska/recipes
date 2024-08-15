@@ -7,6 +7,12 @@ ul.recipes {
   }
 }
 
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
 h2 {
   margin-top: 40px;
 }

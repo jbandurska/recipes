@@ -12,12 +12,11 @@ import { Recipe } from '../../models/recipe.models';
 export class RecipeThumbnailComponent {
   @Input({ required: true }) recipe!: Recipe;
 
-  @Output() checked = new EventEmitter<[Recipe, boolean]>();
+  @Output() checked = new EventEmitter<Recipe>();
 
-  isChecked = false;
-
-  toggleRecipe(recipe: Recipe): void {
-    this.isChecked = !this.isChecked;
-    this.checked.emit([recipe, this.isChecked]);
+  toggleRecipe(e: any, recipe: Recipe): void {
+    recipe.checked = !recipe.checked;
+    e.srcElement.checked = recipe.checked;
+    this.checked.emit(recipe);
   }
 }

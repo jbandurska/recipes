@@ -14,6 +14,7 @@ import { IngredientPipe } from '../../pipes/ingredient.pipe';
 })
 export class RecipeComponent implements OnInit, OnDestroy {
   recipe?: Recipe;
+  copyButtonText: 'copy to clipboard' | 'copied ✔' = 'copy to clipboard';
 
   get stars(): string {
     return (
@@ -38,6 +39,22 @@ export class RecipeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.renderer.setStyle(document.body, 'background-image', '');
+    this.renderer.setStyle(
+      document.body,
+      'background-image',
+      'url("https://img.freepik.com/free-vector/cooking-pattern-design_1284-545.jpg?t=st=1723746881~exp=1723750481~hmac=bb15cc5fa50765168668ce23c43b57f0ba85137419ebfa2e6bab57dcb4f29bb0&w=740")'
+    );
+  }
+
+  copyToClipboard(): void {
+    const list: string = (this.recipe?.ingredients || [])
+      .map((i) => `${i.name} (${i.quantity} ${i.unit})`)
+      .join('\n');
+    navigator.clipboard.writeText(list);
+
+    this.copyButtonText = 'copied ✔';
+    setTimeout(() => {
+      this.copyButtonText = 'copy to clipboard';
+    }, 1000);
   }
 }

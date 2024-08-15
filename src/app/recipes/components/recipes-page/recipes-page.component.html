@@ -1,5 +1,10 @@
 <h1 class="t-center">Przepisy</h1>
 
+<div class="buttons">
+  <button class="random" (click)="goToRandomRecipe()">Wylosuj przepis</button>
+  <button class="random" (click)="getThreeRandomRecipes()">Wylosuj 3 przepisy</button>
+</div>
+
 <ul class="recipes">
   @for (recipe of recipes; track recipe.title) {
   <li>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { RECIPES } from '../../data/recipes.data';
 import { Ingredient } from '../../models/ingredient.model';
 import { Recipe } from '../../models/recipe.models';
@@ -19,8 +20,10 @@ export class RecipesPageComponent {
 
   copyButtonText: 'copy to clipboard' | 'copied ✔' = 'copy to clipboard';
 
-  updateChosenRecipes([recipe, isChecked]: [Recipe, boolean]): void {
-    if (isChecked) {
+  constructor(private router: Router) {}
+
+  updateChosenRecipes(recipe: Recipe): void {
+    if (recipe.checked) {
       this.chosenRecipes.push(recipe);
     } else {
       this.chosenRecipes = this.chosenRecipes.filter(
@@ -45,7 +48,7 @@ export class RecipesPageComponent {
 
         return prev;
       }, {} as { [key: string]: Ingredient })
-    );
+    ).sort((a, b) => a.name.localeCompare(b.name));
   }
 
   copyToClipboard(): void {
@@ -58,5 +61,32 @@ export class RecipesPageComponent {
     setTimeout(() => {
       this.copyButtonText = 'copy to clipboard';
     }, 1000);
+  }
+
+  goToRandomRecipe(): void {
+    const recipes = this.shuffleArray(this.recipes);
+    this.router.navigate([recipes[0]?.title]);
+  }
+
+  getThreeRandomRecipes(): void {
+    const recipes = this.shuffleArray(this.recipes);
+
+    recipes.forEach((r, i) => {
+      r.checked = i < 3;
+    });
+
+    this.chosenRecipes = recipes.slice(0, 3);
+    this.updateShoppingList();
+  }
+
+  private shuffleArray<T>(array: T[]) {
+    const copy = [...array];
+
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+
+    return copy;
   }
 }
