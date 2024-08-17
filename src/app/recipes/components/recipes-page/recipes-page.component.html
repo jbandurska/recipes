@@ -24,12 +24,10 @@
 <div class="list-container">
   <ul class="list">
     @for (item of shoppingList; track item.name) {
-    <li>{{ item | ingredient }}</li>
+    <li>{{ item | shoppingListItem }}</li>
     }
   </ul>
 
-  <button class="copy m-center" (click)="copyToClipboard()">
-    {{ copyButtonText }}
-  </button>
+  <app-copy-button class="m-center" [contentToCopy]="contentToCopy" />
 </div>
 }

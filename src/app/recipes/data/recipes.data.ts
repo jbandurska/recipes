@@ -1,10 +1,13 @@
 import { Unit } from '../enums/unit.enum';
-import { Recipe } from '../models/recipe.models';
+import { Recipe } from '../models/recipe.model';
 
 export const RECIPES: Recipe[] = [
   {
     title: 'Kurczak Curry',
     rating: 5,
+    vegetarian: false,
+    prepTime: 70,
+    link: 'https://aniagotuje.pl/przepis/kurczak-curry',
     photo:
       'https://cdn.aniagotuje.com/pictures/articles/2020/01/1967550-v-1500x1500.jpg',
     ingredients: [
@@ -82,6 +85,8 @@ export const RECIPES: Recipe[] = [
   {
     title: 'Creamy Vegan One Pot Pasta',
     rating: 4,
+    vegetarian: true,
+    prepTime: 45,
     photo:
       'https://veganheaven.org/wp-content/uploads/2017/02/Creamy-Vegan-One-Pot-Pasta-4.jpg',
     ingredients: [
@@ -107,6 +112,8 @@ export const RECIPES: Recipe[] = [
   {
     title: 'Red Lentil Soup',
     rating: 4,
+    vegetarian: true,
+    prepTime: 70,
     photo:
       'https://static01.nyt.com/images/2019/01/17/dining/mc-red-lentil-soup/mc-red-lentil-soup-threeByTwoMediumAt2X-v2.jpg?width=1280&quality=75&auto=webp',
     ingredients: [
@@ -139,6 +146,8 @@ export const RECIPES: Recipe[] = [
   {
     title: 'Kotlety z ziemniakami i mizerią',
     rating: 5,
+    vegetarian: false,
+    prepTime: 70,
     photo:
       'https://cdn.galleries.smcloud.net/t/galleries/gf-FEJW-RRJp-UVPg_schabowe-z-koscia-664x442-nocrop.jpg',
     ingredients: [
@@ -160,6 +169,8 @@ export const RECIPES: Recipe[] = [
   {
     title: 'Musztardowe',
     rating: 3,
+    vegetarian: true,
+    prepTime: 70,
     photo:
       'https://static.fajnegotowanie.pl/media/uploads/media_image/original/przepis/1439/sos-musztardowy.jpg',
     ingredients: [],
@@ -168,6 +179,8 @@ export const RECIPES: Recipe[] = [
   {
     title: 'Tofu Katsu Noodle Bowl',
     rating: 3,
+    vegetarian: true,
+    prepTime: 70,
     photo:
       'https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_1024/https://woonheng.com/wp-content/uploads/2020/06/Tofu-Katsu-Noodle-5-1-1024x1024.jpg',
     ingredients: [
@@ -205,6 +218,8 @@ export const RECIPES: Recipe[] = [
   {
     title: 'Easy Carbonara',
     rating: 3,
+    vegetarian: false,
+    prepTime: 70,
     photo:
       'https://img.jamieoliver.workers.dev/images/cq7w2e71/production/701783bf859090eea919ec0fc2a4c58b148c9b67-958x1280.jpg/105104800?rect=0,2,958,1277&w=1920&h=2560&fm=webp&q=80&fit=crop&auto=format',
     ingredients: [
@@ -226,6 +241,8 @@ export const RECIPES: Recipe[] = [
   {
     title: 'Indian Butter Chickpeas',
     rating: 4,
+    vegetarian: true,
+    prepTime: 70,
     photo:
       'https://hips.hearstapps.com/hmg-prod/images/del121223-indian-butter-chickpeas-008-ab-hi-res-lead-6596b3d0c388f.jpg?resize=1200:*',
     ingredients: [
@@ -254,6 +271,8 @@ export const RECIPES: Recipe[] = [
   {
     title: 'Sweet and Sour Chicken',
     rating: 5,
+    vegetarian: false,
+    prepTime: 70,
     photo:
       'https://www.kitchensanctuary.com/wp-content/uploads/2019/09/Sweet-and-sour-chicken-tall-FS-0834.webp',
     ingredients: [
@@ -292,6 +311,8 @@ export const RECIPES: Recipe[] = [
   {
     title: 'Szpinak',
     rating: 3,
+    vegetarian: true,
+    prepTime: 70,
     photo: '',
     ingredients: [],
     steps: [],
@@ -299,14 +320,19 @@ export const RECIPES: Recipe[] = [
   {
     title: 'Chinkali',
     rating: 5,
+    vegetarian: false,
+    prepTime: 70,
     photo:
       'https://cdn.aniagotuje.com/pictures/articles/2023/10/50592283-v-1500x1500.jpg',
+    link: 'https://aniagotuje.pl/przepis/chinkali',
     ingredients: [],
     steps: [],
   },
   {
     title: 'Napoli',
     rating: 3,
+    vegetarian: true,
+    prepTime: 70,
     photo:
       'https://cdn.aniagotuje.com/pictures/articles/2022/08/31579351-v-1500x1500.jpg',
     ingredients: [
@@ -331,6 +357,8 @@ export const RECIPES: Recipe[] = [
   {
     title: 'Rosół',
     rating: 3,
+    vegetarian: false,
+    prepTime: 70,
     photo:
       'https://cdn.aniagotuje.com/pictures/articles/2020/01/1968771-v-1500x1500.jpg',
     ingredients: [

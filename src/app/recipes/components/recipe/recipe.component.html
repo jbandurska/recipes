@@ -1,9 +1,23 @@
 <a routerLink="/">&#8249; wróć do przepisów</a>
 
 <div class="recipe">
-  <div class="header f-center">
-    <h2 class="title">{{ recipe?.title }}</h2>
-    <div class="stars">{{ stars }}</div>
+  <div class="header">
+    <div class="main f-center">
+      <h2 class="title">
+        @if (recipe?.link) {
+        <a target="_blank" [href]="recipe?.link">{{ recipe?.title }}</a>
+        } @else {
+        {{ recipe?.title }}
+        } @if (recipe?.vegetarian) {
+        <img src="assets/svg/leaf.svg" alt="leaf" />
+        }
+      </h2>
+      <div class="stars">{{ stars }}</div>
+    </div>
+    <p class="prep-time f-center">
+      <img src="assets/svg/clock.svg" alt="clock" />
+      {{ recipe?.prepTime }}m
+    </p>
   </div>
   <div class="content">
     <div class="ingredients">
@@ -14,9 +28,7 @@
         </li>
         }
       </ul>
-      <button class="copy m-center" (click)="copyToClipboard()">
-        {{ copyButtonText }}
-      </button>
+      <app-copy-button class="copy m-center" [contentToCopy]="contentToCopy" />
     </div>
     <div class="steps">
       <ol>

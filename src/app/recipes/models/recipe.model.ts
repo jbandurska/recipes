@@ -5,6 +5,9 @@ export interface Recipe {
   rating: number;
   photo: string;
   checked?: boolean;
+  vegetarian: boolean;
+  prepTime: number;
+  link?: string;
   ingredients: Ingredient[];
   steps: string[];
 }

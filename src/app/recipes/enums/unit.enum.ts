@@ -14,18 +14,3 @@ export enum Unit {
   Handful = 'handful',
   Serving = 'serving',
 }
-
-const pluralUnits = [
-  Unit.Piece,
-  Unit.Kilogram,
-  Unit.Gram,
-  Unit.Cup,
-  Unit.Package,
-  Unit.Pinch,
-  Unit.Handful,
-  Unit.Serving,
-];
-
-export const isPlural = (unit: Unit): boolean => {
-  return pluralUnits.includes(unit);
-};

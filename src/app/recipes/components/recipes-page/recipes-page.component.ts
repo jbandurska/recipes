@@ -1,26 +1,52 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CopyButtonComponent } from '../../../shared/components/copy-button/copy-button.component';
 import { RECIPES } from '../../data/recipes.data';
-import { Ingredient } from '../../models/ingredient.model';
-import { Recipe } from '../../models/recipe.models';
+import { Recipe } from '../../models/recipe.model';
+import { ShoppingListItem } from '../../models/shopping-list-item.model';
 import { IngredientPipe } from '../../pipes/ingredient.pipe';
+import { ShoppingListItemPipe } from '../../pipes/shopping-list-item.pipe';
+import { IngredientService } from '../../services/ingredient.service';
+import { ShoppingListService } from '../../services/shopping-list.service';
 import { RecipeThumbnailComponent } from '../recipe-thumbnail/recipe-thumbnail.component';
 
 @Component({
   selector: 'app-recipes-page',
   standalone: true,
-  imports: [RecipeThumbnailComponent, IngredientPipe],
+  imports: [
+    RecipeThumbnailComponent,
+    IngredientPipe,
+    ShoppingListItemPipe,
+    CopyButtonComponent,
+  ],
   templateUrl: './recipes-page.component.html',
   styleUrl: './recipes-page.component.scss',
 })
 export class RecipesPageComponent {
-  readonly recipes = RECIPES;
-  chosenRecipes: Recipe[] = [];
-  shoppingList: Ingredient[] = [];
+  private chosenRecipes: Recipe[] = [];
+  private readonly itemPipe = new ShoppingListItemPipe(this.ingredientService);
 
-  copyButtonText: 'copy to clipboard' | 'copied ✔' = 'copy to clipboard';
+  get recipes(): Recipe[] {
+    return RECIPES.sort((a, b) => {
+      const sortChecked = (b.checked ? 1 : 0) - (a.checked ? 1 : 0);
 
-  constructor(private router: Router) {}
+      return sortChecked || a.title.localeCompare(b.title);
+    });
+  }
+
+  get shoppingList(): ShoppingListItem[] {
+    return this.shoppingListService.shoppingList;
+  }
+
+  get contentToCopy(): string {
+    return this.shoppingList.map((i) => this.itemPipe.transform(i)).join('\n');
+  }
+
+  constructor(
+    private router: Router,
+    private shoppingListService: ShoppingListService,
+    private ingredientService: IngredientService
+  ) {}
 
   updateChosenRecipes(recipe: Recipe): void {
     if (recipe.checked) {
@@ -31,36 +57,7 @@ export class RecipesPageComponent {
       );
     }
 
-    this.updateShoppingList();
-  }
-
-  private updateShoppingList(): void {
-    const ingredients: Ingredient[] = [];
-    this.chosenRecipes.forEach((r) => ingredients.push(...r.ingredients));
-
-    this.shoppingList = Object.values(
-      ingredients.reduce((prev, curr) => {
-        if (prev[curr.name]?.unit === curr.unit) {
-          prev[curr.name].quantity += curr.quantity;
-        } else {
-          prev[curr.name] = { ...curr };
-        }
-
-        return prev;
-      }, {} as { [key: string]: Ingredient })
-    ).sort((a, b) => a.name.localeCompare(b.name));
-  }
-
-  copyToClipboard(): void {
-    const list: string = this.shoppingList
-      .map((i) => `${i.name} (${i.quantity} ${i.unit})`)
-      .join('\n');
-    navigator.clipboard.writeText(list);
-
-    this.copyButtonText = 'copied ✔';
-    setTimeout(() => {
-      this.copyButtonText = 'copy to clipboard';
-    }, 1000);
+    this.shoppingListService.updateShoppingList(this.chosenRecipes);
   }
 
   goToRandomRecipe(): void {
@@ -76,7 +73,7 @@ export class RecipesPageComponent {
     });
 
     this.chosenRecipes = recipes.slice(0, 3);
-    this.updateShoppingList();
+    this.shoppingListService.updateShoppingList(this.chosenRecipes);
   }
 
   private shuffleArray<T>(array: T[]) {
