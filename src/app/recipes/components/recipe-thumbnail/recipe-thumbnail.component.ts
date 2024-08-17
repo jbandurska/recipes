@@ -14,9 +14,8 @@ export class RecipeThumbnailComponent {
 
   @Output() checked = new EventEmitter<Recipe>();
 
-  toggleRecipe(e: any, recipe: Recipe): void {
+  toggleRecipe(recipe: Recipe): void {
     recipe.checked = !recipe.checked;
-    e.srcElement.checked = recipe.checked;
     this.checked.emit(recipe);
   }
 }

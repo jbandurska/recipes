@@ -10,7 +10,7 @@
   </a>
   <input
     type="checkbox"
-    [value]="recipe.checked"
-    (change)="toggleRecipe($event, recipe)"
+    [checked]="recipe.checked"
+    (change)="toggleRecipe(recipe)"
   />
 </div>

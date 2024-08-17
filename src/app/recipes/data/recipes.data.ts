@@ -297,6 +297,14 @@ export const RECIPES: Recipe[] = [
     steps: [],
   },
   {
+    title: 'Chinkali',
+    rating: 5,
+    photo:
+      'https://cdn.aniagotuje.com/pictures/articles/2023/10/50592283-v-1500x1500.jpg',
+    ingredients: [],
+    steps: [],
+  },
+  {
     title: 'Napoli',
     rating: 3,
     photo:
