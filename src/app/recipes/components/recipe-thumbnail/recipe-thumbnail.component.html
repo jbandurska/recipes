@@ -8,9 +8,10 @@
     />
     <div class="title">{{ recipe.title }}</div>
   </a>
-  <input
-    type="checkbox"
-    [checked]="recipe.checked"
-    (change)="toggleRecipe(recipe)"
-  />
+  <button
+    class="checkbox-button"
+    (click)="toggleRecipe(recipe)"
+  >
+    <span>✔</span>
+  </button>
 </div>

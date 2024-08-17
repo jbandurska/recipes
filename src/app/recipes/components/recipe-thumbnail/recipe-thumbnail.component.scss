@@ -35,5 +35,17 @@ $primary: #3484e4;
   &.checked {
     border-color: $primary;
     background-color: mix(white, $primary, 90%);
+
+    .checkbox-button {
+      opacity: 1;
+      background-color: $primary;
+    }
+  }
+
+  .checkbox-button {
+    opacity: 0.5;
+    height: 80px;
+    border-radius: 0;
+    background-color: #aaa;
   }
 }

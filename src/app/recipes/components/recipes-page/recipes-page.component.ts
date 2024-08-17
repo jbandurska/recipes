@@ -23,16 +23,9 @@ import { RecipeThumbnailComponent } from '../recipe-thumbnail/recipe-thumbnail.c
   styleUrl: './recipes-page.component.scss',
 })
 export class RecipesPageComponent {
+  public recipes = RECIPES;
   private chosenRecipes: Recipe[] = [];
   private readonly itemPipe = new ShoppingListItemPipe(this.ingredientService);
-
-  get recipes(): Recipe[] {
-    return RECIPES.sort((a, b) => {
-      const sortChecked = (b.checked ? 1 : 0) - (a.checked ? 1 : 0);
-
-      return sortChecked || a.title.localeCompare(b.title);
-    });
-  }
 
   get shoppingList(): ShoppingListItem[] {
     return this.shoppingListService.shoppingList;
@@ -74,6 +67,10 @@ export class RecipesPageComponent {
 
     this.chosenRecipes = recipes.slice(0, 3);
     this.shoppingListService.updateShoppingList(this.chosenRecipes);
+    this.recipes = RECIPES.sort((a, b) => {
+      const sortChecked = (b.checked ? 1 : 0) - (a.checked ? 1 : 0);
+      return sortChecked || a.title.localeCompare(b.title);
+    });
   }
 
   private shuffleArray<T>(array: T[]) {
