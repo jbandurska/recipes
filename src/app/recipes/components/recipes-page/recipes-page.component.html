@@ -5,21 +5,21 @@
   <button class="random" (click)="getThreeRandomRecipes()">
     Wylosuj 3 przepisy
   </button>
+  <button class="random" (click)="generateShoppingList()">
+    Wygeneruj listę zakupów
+  </button>
 </div>
 
 <ul class="recipes">
   @for (recipe of recipes; track recipe.title) {
   <li>
-    <app-recipe-thumbnail
-      [recipe]="recipe"
-      (checked)="updateChosenRecipes($event)"
-    />
+    <app-recipe-thumbnail [recipe]="recipe" />
   </li>
   }
 </ul>
 
 @if (shoppingList.length) {
-<h2 class="t-center">Lista zakupów</h2>
+<h2 id="shoppingList" class="t-center">Lista zakupów</h2>
 
 <div class="list-container">
   <ul class="list">

@@ -18,6 +18,6 @@ export class CopyButtonComponent {
     this.copyButtonText = 'skopiowano ✔';
     setTimeout(() => {
       this.copyButtonText = 'skopiuj';
-    }, 1500);
+    }, 1000);
   }
 }
