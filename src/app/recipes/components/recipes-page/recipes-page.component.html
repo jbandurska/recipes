@@ -2,7 +2,9 @@
 
 <div class="buttons">
   <button class="random" (click)="goToRandomRecipe()">Wylosuj przepis</button>
-  <button class="random" (click)="getThreeRandomRecipes()">Wylosuj 3 przepisy</button>
+  <button class="random" (click)="getThreeRandomRecipes()">
+    Wylosuj 3 przepisy
+  </button>
 </div>
 
 <ul class="recipes">
@@ -19,12 +21,15 @@
 @if (shoppingList.length) {
 <h2 class="t-center">Lista zakupów</h2>
 
-<ul class="list">
-  @for (item of shoppingList; track item.name) {
-  <li>{{ item | ingredient }}</li>
-  }
+<div class="list-container">
+  <ul class="list">
+    @for (item of shoppingList; track item.name) {
+    <li>{{ item | ingredient }}</li>
+    }
+  </ul>
+
   <button class="copy m-center" (click)="copyToClipboard()">
     {{ copyButtonText }}
   </button>
-</ul>
+</div>
 }
