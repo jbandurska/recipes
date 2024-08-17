@@ -20,8 +20,10 @@ export class IngredientService {
   constructor() {}
 
   public getQuantityString(base: IngredientBase): string {
-    return `${Math.round(base.quantity * 100) / 100 || ''} ${base.unit}${
-      this.isPlural(base.unit) && base.quantity > 1 ? 's' : ''
+    const quantity = Math.round(base.quantity * 100) / 100;
+
+    return `${quantity ? quantity + ' ' : ''}${base.unit}${
+      this.isPlural(base.unit) && quantity > 1 ? 's' : ''
     }`;
   }
 
