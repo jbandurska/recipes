@@ -167,14 +167,50 @@ export const RECIPES: Recipe[] = [
     ],
   },
   {
-    title: 'Musztardowe',
+    title: 'Sos musztardowy',
     rating: 3,
     vegetarian: true,
     prepTime: 70,
     photo:
       'https://static.fajnegotowanie.pl/media/uploads/media_image/original/przepis/1439/sos-musztardowy.jpg',
-    ingredients: [],
-    steps: [],
+    ingredients: [
+      {
+        name: 'mustard',
+        description: 'sarepska lub Dijon',
+        quantity: 2,
+        unit: Unit.TableSpoon,
+      },
+      {
+        name: 'butter',
+        quantity: 2,
+        unit: Unit.TableSpoon,
+      },
+      {
+        name: 'flour',
+        quantity: 1,
+        unit: Unit.TableSpoon,
+      },
+      {
+        name: 'vegetable broth',
+        quantity: 1,
+        unit: Unit.Cup,
+      },
+      {
+        name: 'pepper',
+        quantity: 1,
+        unit: Unit.Pinch,
+      },
+      {
+        name: 'potatos',
+        quantity: 6,
+        unit: Unit.Piece,
+      },
+    ],
+    steps: [
+      'Ugotuj ziemniaki. Nie zapomnij ich posolić!',
+      'W małym rondelku lub garnuszku umieść dwie spore łyżki prawdziwego masła. Ustaw odrobinę wyższą niż mała moc palnika i zacznij powoli roztapiać masło. Wsyp łyżkę mąki pszennej. Niech będzie to nie płaska i nie za czubata łyżka mąki. Smaż tak chwilę masełko z mąką na lekką zasmażkę.',
+      'Po chwili wlej też 250 ml, czyli jedną szklankę bulionu warzywnego lub też drobiowego. Od razu możesz też dodać dwie łyżki ostrej musztardy i szczyptę pieprzu. Zwiększ moc palnika i ciągle mieszając rozcieraj i łącz ze sobą składniki sosu. Na początku może Ci się wydawać, że sos będzie za rzadki i nie wygląda za ciekawie, ale z minuty na minutę będzie się robił coraz gładszy i gęstszy.. zaufaj mi.',
+    ],
   },
   {
     title: 'Tofu Katsu Noodle Bowl',
@@ -242,7 +278,7 @@ export const RECIPES: Recipe[] = [
     title: 'Indian Butter Chickpeas',
     rating: 4,
     vegetarian: true,
-    prepTime: 70,
+    prepTime: 50,
     photo:
       'https://hips.hearstapps.com/hmg-prod/images/del121223-indian-butter-chickpeas-008-ab-hi-res-lead-6596b3d0c388f.jpg?resize=1200:*',
     ingredients: [
@@ -332,7 +368,7 @@ export const RECIPES: Recipe[] = [
     title: 'Napoli',
     rating: 3,
     vegetarian: true,
-    prepTime: 70,
+    prepTime: 40,
     photo:
       'https://cdn.aniagotuje.com/pictures/articles/2022/08/31579351-v-1500x1500.jpg',
     ingredients: [

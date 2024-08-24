@@ -7,4 +7,5 @@ export interface IngredientBase {
 
 export interface Ingredient extends IngredientBase {
   name: string;
+  description?: string;
 }
